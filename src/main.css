@@ -1,0 +1,199 @@
+@font-face {
+    font-family: sholom;
+    src: url(./fonts/sholom.ttf);
+  }
+  
+#title {
+    text-align: center;
+    margin:0;
+    padding:0;
+}
+
+.sedler {
+    font-family: sholom, sans-serif;
+}
+
+#title .help {
+    float: left;
+    display: inline;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+body,
+.help-modal {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+#game #keyboard .row {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    touch-action: manipulation;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#game #keyboard .row:nth-child(2) {
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box
+} 
+
+#game #keyboard button {
+    border: 0;
+    padding: 3px;
+    margin: 3px;
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #bababa;
+    color: #0038b8;
+    font-weight: 800;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.board {
+    font-size: 36px;
+    font-family: sans-serif;
+    margin: 0 auto;
+    border-spacing: 9px;
+}
+
+.board td {
+    width: 63px;
+    height: 63px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid #7f8fb4;
+    transition: 0.8s ease-in;
+}
+
+.board td:not(:empty) {
+    border-color: #0038b8;
+}
+
+#game #keyboard button.correct,
+.board td.correct {
+    background-color: #008000;
+    color: #fee05e;
+}
+
+#game #keyboard button.present,
+.board td.present {
+    background-color: #fee05e;
+    color: #0038b8;
+}
+
+.board td.correct,
+.board td.present,
+#game #keyboard button.correct,
+#game #keyboard button.present {
+    font-weight: 800;
+}
+
+.board td.incorrect,
+#game #keyboard button.incorrect {
+    background-color: #80848d;
+}
+
+.board td.correct,
+.board td.present,
+.board td.incorrect {
+    transform: rotateX(360deg);
+}
+
+.hidden {
+    display: none;
+}
+
+.help-modal,
+.next-game-modal {
+    position: absolute;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.94);
+    height: 100%;
+}
+
+.help-modal h2,
+.help-modal h3,
+.next-game-modal h2
+ {
+    font-family: sans-serif;
+}
+
+.help-modal .board {
+    margin: 0;
+}
+
+.help-modal .examples p {
+    margin-bottom: 0;
+}
+
+.help-modal .examples p b {
+    font-size: 110%;
+    font-weight: 800;
+    font-family: sans-serif;
+}
+.help-modal button {
+    width: 390px;
+    height: 36px;
+    margin: 18px 0;
+    font-size: 1.18em;;
+    font-weight: 800;
+}
+.help-modal .close-modal.x-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.toast {
+    display: block;
+    position: absolute;
+    margin-top: 25px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 13em;
+    text-align: center;
+    font-family: sans-serif;
+    background: rgba(0, 0,0, .88);
+    color: #FFF;
+    padding: 18px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.next-game-modal {
+    width: 180px;
+    height: 130px;
+    margin: 0 auto;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    padding: 18px;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 0 4px 23px 0 rgb(0 0 0 / 20%);
+}
+
+.next-game-modal h2 {
+    padding: 0;
+    margin: 0;  
+}
+
+.next-game-modal button {
+    padding: 10px;
+}

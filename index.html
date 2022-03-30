@@ -1,0 +1,165 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Sedler</title>
+        <meta property="og:title" content="Sedler - A passover game" />
+        <meta property="og:url" content="https://passover-sedler.github.io" />
+        <meta
+          property="og:description"
+          content="Guess the hidden pesach related word in 6 tries. A puzzle for each seder day!"
+        />
+        <meta property="og:image" content="./images/og-image.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="passover-sedler.github.io" />
+        <link rel="canonical" href="https://passover-sedler.github.io/index.html" />    
+        <link rel="stylesheet" href="src/main.css">
+    </head>
+    <body>
+        <h1 id="title"><span class="help open-modal">😕</span><span class="sedler">Sedler</span></h1>
+        <section class="toast" style="display:none">
+        </section>
+        <section id="game">
+            <table class="board">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div id="keyboard">
+                <div class="row">
+                    <button>Q</button>
+                    <button>W</button>
+                    <button>E</button>
+                    <button>R</button>
+                    <button>T</button>
+                    <button>Y</button>
+                    <button>U</button>
+                    <button>I</button>
+                    <button>O</button>
+                    <button>P</button>
+                </div>
+                <div class="row">
+                    <button>A</button>
+                    <button>S</button>
+                    <button>D</button>
+                    <button>F</button>
+                    <button>G</button>
+                    <button>H</button>
+                    <button>J</button>
+                    <button>K</button>
+                    <button>L</button>
+                </div>
+                <div class="row">
+                    <button>ENTER</button>
+                    <button>Z</button>
+                    <button>X</button>
+                    <button>C</button>
+                    <button>V</button>
+                    <button>B</button>
+                    <button>N</button>
+                    <button>M</button>
+                    <button>⌫</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-modal">
+            <div class="close-modal x-button">✕</div>
+            <h2>How to <span class="sedler">Sedler</span>!</h2>
+            <p>You have six tries to guess the word</p>
+            <p>
+                The word has to be a valid five letter word.
+                Hit enter to submit your guess
+            </p>
+            <p>
+                HINT: The word has to do with the Pesach Sedar.
+            </p>
+            <p>
+                With each incorrect guess, Sedler will point out letters
+                that is in the word, and where they are placed correctly.
+            </p>
+            <hr>
+            <h3>Examples</h3>
+            <br/>
+            <div class="examples">
+                <p>
+                    The letter <b>W</b> is in the word and in the correct spot.
+                </p>
+                <table class="board">
+                    <tr>
+                        <td>S</td>
+                        <td class="correct">W</td>
+                        <td>O</td>
+                        <td>R</td>
+                        <td>D</td>
+                    </tr>
+                </table>
+                <p>
+                    The letter <b>A</b> is in the word but is placed in the wrong spot.
+                </p>
+                <table class="board">
+                    <tr>
+                        <td>H</td>
+                        <td>U</td>
+                        <td>M</td>
+                        <td class="present">A</td>
+                        <td>N</td>
+                    </tr>
+                </table>
+                <p>
+                    The letter <b>D</b> is not in the word.
+                </p>
+                <table class="board">
+                    <tr>
+                        <td>E</td>
+                        <td>C</td>
+                        <td>H</td>
+                        <td>A</td>
+                        <td class="incorrect">D</td>
+                    </tr>
+                </table>
+            </div>
+            <button class="close-modal">Let's Sedle!</button>
+        </section>
+        <script src="src/main.js"></script>
+    </body>
