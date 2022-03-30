@@ -6,6 +6,7 @@ class App {
         this.modelEl = modelEl;
         this.toastEl = toastEl;
         this.answers = answers;
+        this.answerEntries = this.answers.entries();
         this.keyboardButtons= {};
         this.keyboardEl.querySelectorAll('button').forEach(buttonEl => {
             this.keyboardButtons[buttonEl.textContent.toLowerCase()] = buttonEl;
@@ -15,10 +16,16 @@ class App {
 
     start() {
         console.log('starting game!');
-        this.gameStopped = false;
-        this.answer = this.answers.shift();
         this.guessAttempt = 0;
         this.char = 0;
+        let nextAnswer = this.answerEntries.next();
+        if (nextAnswer.done) {
+            this.answerIterator = this.answers.entries();
+            nextAnswer = this.answerEntries.next();
+        }
+        this.answer = nextAnswer.value[1];
+        this.gameStopped = false;
+        
     }
 
     bind() {
@@ -85,7 +92,7 @@ class App {
 
 
     checkGuess() {
-        console.log('chiecking guess!');
+        console.log('checking guess!');
         // if the game is stopped don't check guesses
         if (this.gameStopped) {
             return;
@@ -135,6 +142,17 @@ class App {
         }
     }
 
+    clearBoard() {
+        console.log('clearBoard');
+        this.boardEl.querySelectorAll('td').forEach(td => {
+            td.innerHTML = '';
+            td.className = '';
+        });
+        this.keyboardEl.querySelectorAll('button').forEach(button => {
+            button.className = '';
+        });
+    }
+
     end() {
         this.gameStopped = true;
         const el = this.document.createElement('section');
@@ -146,10 +164,7 @@ class App {
         this.document.body.appendChild(el);
         el.querySelector('button').addEventListener('click', ()=>{
             this.document.body.removeChild(el);
-            this.boardEl.querySelectorAll('td').forEach(td => {
-                td.innerHTML = '';
-                td.className = '';
-            });
+            this.clearBoard();
             this.start();
         });
     }

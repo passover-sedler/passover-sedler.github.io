@@ -5,8 +5,9 @@
   
 #title {
     text-align: center;
-    margin:0;
-    padding:0;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
 }
 
 .sedler {
@@ -22,8 +23,12 @@
 
 body,
 .help-modal {
-    max-width: 540px;
+    max-width: 500px;
     margin: 0 auto;
+}
+
+#game #keyboard {
+    margin-top: 36px;
 }
 
 #game #keyboard .row {
@@ -32,7 +37,7 @@ body,
     align-items: center;
     touch-action: manipulation;
     margin: 0 auto;
-    width: 100%;
+    width: 95%;
 }
 
 #game #keyboard .row:nth-child(2) {
@@ -45,7 +50,7 @@ body,
     border: 0;
     padding: 3px;
     margin: 3px;
-    height: 50px;
+    height: 60px;
     width: 50px;
     border-radius: 3px;
     cursor: pointer;
@@ -68,11 +73,14 @@ body,
 }
 
 .board td {
-    width: 63px;
-    height: 63px;
+    width: 53px;
+    height: 53px;
     text-align: center;
     text-transform: uppercase;
     border: 2px solid #7f8fb4;
+}
+#keyboard button, 
+.board td {
     transition: 0.8s ease-in;
 }
 
@@ -104,6 +112,9 @@ body,
     background-color: #80848d;
 }
 
+#keyboard button.correct,
+#keyboard button.present,
+#keyboard button.incorrect,
 .board td.correct,
 .board td.present,
 .board td.incorrect {
@@ -120,6 +131,7 @@ body,
     top: 0;
     background-color: rgba(255, 255, 255, 0.94);
     height: 100%;
+    padding: 10px;
 }
 
 .help-modal h2,
@@ -129,12 +141,18 @@ body,
     font-family: sans-serif;
 }
 
+.help-modal h3 {
+    margin-top: 0.25em;
+    margin-bottom: 0.1em;
+}
+
 .help-modal .board {
     margin: 0;
 }
 
 .help-modal .examples p {
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .help-modal .examples p b {
@@ -143,9 +161,10 @@ body,
     font-family: sans-serif;
 }
 .help-modal button {
-    width: 390px;
+    width: 90%;
     height: 36px;
-    margin: 18px 0;
+    margin: 18px auto;
+    display: block;
     font-size: 1.18em;;
     font-weight: 800;
 }
