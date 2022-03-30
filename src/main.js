@@ -6,11 +6,11 @@ class App {
         this.modelEl = modelEl;
         this.toastEl = toastEl;
         this.answers = answers;
-        this.bind();
         this.keyboardButtons= {};
         this.keyboardEl.querySelectorAll('button').forEach(buttonEl => {
             this.keyboardButtons[buttonEl.textContent.toLowerCase()] = buttonEl;
         });
+        this.bind();
     }
 
     start() {
@@ -22,9 +22,10 @@ class App {
     }
 
     bind() {
-        this.document.querySelectorAll('.close-modal').forEach((el) => el.addEventListener('click', this.hideModal.bind(this)));
-        this.document.querySelectorAll('.open-modal').forEach((el) => el.addEventListener('click', this.openModal.bind(this)));
+        this.document.querySelectorAll('.close-modal').forEach(el => el.addEventListener('click', this.hideModal.bind(this)));
+        this.document.querySelectorAll('.open-modal').forEach(el => el.addEventListener('click', this.openModal.bind(this)));
         this.document.addEventListener('keydown', this.onKeydown.bind(this));
+        this.keyboardEl.querySelectorAll('button').forEach(el => { el.addEventListener('click', this.onKeyboardPress.bind(this)) });
     }
 
     hideModal() {
@@ -54,6 +55,9 @@ class App {
         return this.boardEl.querySelectorAll('tr').length;
     }
 
+    onKeyboardPress(e) {
+        this.onKeydown({key: e.target.textContent.toLowerCase()});
+    }
     onKeydown(e) {
         if (this.isModalOpen() || this.gameStopped) {
             return;
