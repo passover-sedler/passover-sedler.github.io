@@ -19,6 +19,7 @@
     display: inline;
     font-size: 0.8em;
     cursor: pointer;
+    margin-right: -1em;
 }
 
 body,
@@ -28,7 +29,7 @@ body,
 }
 
 #game #keyboard {
-    margin-top: 18px;
+    margin-top: 12px;
 }
 
 #game #keyboard .row {
